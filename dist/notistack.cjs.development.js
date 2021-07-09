@@ -205,11 +205,11 @@ var styles = function styles(theme) {
 
   return styles$2.createStyles({
     root: (_root = {
-      display: 'flex',
-      flexWrap: 'wrap',
+      display: "flex",
+      flexWrap: "wrap",
       flexGrow: 1
-    }, _root[theme.breakpoints.up('sm')] = {
-      flexGrow: 'initial',
+    }, _root[theme.breakpoints.up("sm")] = {
+      flexGrow: "initial",
       minWidth: 288
     }, _root)
   });
@@ -225,7 +225,7 @@ var SnackbarContent = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
     className: clsx(classes.root, className)
   }, props));
 });
-var defaultTheme = /*#__PURE__*/styles$3.createMuiTheme();
+var defaultTheme = /*#__PURE__*/styles$3.createTheme();
 var SnackbarContent$1 = /*#__PURE__*/styles$2.withStyles(styles, {
   defaultTheme: defaultTheme
 })(SnackbarContent);
@@ -437,50 +437,50 @@ var Snackbar = /*#__PURE__*/React.forwardRef(function (props, ref) {
 var styles$1 = function styles(theme) {
   // @ts-ignore
   var mode = theme.palette.mode || theme.palette.type;
-  var backgroundColor = styles$3.emphasize(theme.palette.background["default"], mode === 'light' ? 0.8 : 0.98);
+  var backgroundColor = styles$3.emphasize(theme.palette.background["default"], mode === "light" ? 0.8 : 0.98);
   return styles$2.createStyles(_extends({}, allClasses.mui, {
     contentRoot: _extends({}, theme.typography.body2, {
       backgroundColor: backgroundColor,
       color: theme.palette.getContrastText(backgroundColor),
-      alignItems: 'center',
-      padding: '6px 16px',
-      borderRadius: '4px',
-      boxShadow: '0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)'
+      alignItems: "center",
+      padding: "6px 16px",
+      borderRadius: "4px",
+      boxShadow: "0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)"
     }),
     lessPadding: {
       paddingLeft: 8 * 2.5
     },
     variantSuccess: {
-      backgroundColor: '#43a047',
-      color: '#fff'
+      backgroundColor: "#43a047",
+      color: "#fff"
     },
     variantError: {
-      backgroundColor: '#d32f2f',
-      color: '#fff'
+      backgroundColor: "#d32f2f",
+      color: "#fff"
     },
     variantInfo: {
-      backgroundColor: '#2196f3',
-      color: '#fff'
+      backgroundColor: "#2196f3",
+      color: "#fff"
     },
     variantWarning: {
-      backgroundColor: '#ff9800',
-      color: '#fff'
+      backgroundColor: "#ff9800",
+      color: "#fff"
     },
     message: {
-      display: 'flex',
-      alignItems: 'center',
-      padding: '8px 0'
+      display: "flex",
+      alignItems: "center",
+      padding: "8px 0"
     },
     action: {
-      display: 'flex',
-      alignItems: 'center',
-      marginLeft: 'auto',
+      display: "flex",
+      alignItems: "center",
+      marginLeft: "auto",
       paddingLeft: 16,
       marginRight: -8
     },
     wrappedRoot: {
-      position: 'relative',
-      transform: 'translateX(0)',
+      position: "relative",
+      transform: "translateX(0)",
       top: 0,
       right: 0,
       bottom: 0,
@@ -550,7 +550,7 @@ var SnackbarItem = function SnackbarItem(_ref) {
   var icon = _extends({}, defaultIconVariants, {}, iconVariant)[variant];
 
   var ariaAttributes = _extends({
-    'aria-describedby': 'notistack-snackbar'
+    "aria-describedby": "notistack-snackbar"
   }, objectMerge(singleAriaAttributes, otherAriaAttributes));
 
   var TransitionComponent = singleTranComponent || otherTranComponent || DEFAULTS.TransitionComponent;
@@ -562,17 +562,17 @@ var SnackbarItem = function SnackbarItem(_ref) {
 
   var action = singleAction || otherAction;
 
-  if (typeof action === 'function') {
+  if (typeof action === "function") {
     action = action(key);
   }
 
   var content = singleContent || otherContent;
 
-  if (typeof content === 'function') {
+  if (typeof content === "function") {
     content = content(key, snack.message);
   }
 
-  var callbacks = ['onEnter', 'onEntering', 'onEntered', 'onExit', 'onExiting', 'onExited'].reduce(function (acc, cbName) {
+  var callbacks = ["onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited"].reduce(function (acc, cbName) {
     var _extends2;
 
     return _extends({}, acc, (_extends2 = {}, _extends2[cbName] = createChainedFunction([props.snack[cbName], props[cbName]], props.snack.key), _extends2));
@@ -604,46 +604,46 @@ var SnackbarItem = function SnackbarItem(_ref) {
     style: style,
     className: clsx(classes.contentRoot, classes[transformer.toVariant(variant)], otherClassName, singleClassName, !hideIconVariant && icon && classes.lessPadding)
   }), React__default.createElement("div", {
-    id: ariaAttributes['aria-describedby'],
+    id: ariaAttributes["aria-describedby"],
     className: classes.message
   }, !hideIconVariant ? icon : null, snackMessage), action && React__default.createElement("div", {
     className: classes.action
   }, action)))));
 };
 
-var defaultTheme$1 = /*#__PURE__*/styles$3.createMuiTheme();
+var defaultTheme$1 = /*#__PURE__*/styles$3.createTheme();
 var SnackbarItem$1 = /*#__PURE__*/styles$2.withStyles(styles$1, {
   defaultTheme: defaultTheme$1
 })(SnackbarItem);
 
 var collapse = {
-  container: '& > .MuiCollapse-container',
-  wrapper: '& > .MuiCollapse-container > .MuiCollapse-wrapper'
+  container: "& > .MuiCollapse-container",
+  wrapper: "& > .MuiCollapse-container > .MuiCollapse-wrapper"
 };
 var xsWidthMargin = 16;
-var defaultTheme$2 = /*#__PURE__*/styles$3.createMuiTheme();
+var defaultTheme$2 = /*#__PURE__*/styles$3.createTheme();
 var useStyle = /*#__PURE__*/styles$2.makeStyles(function (theme) {
   var _root, _rootDense, _left, _right, _center;
 
   return {
     root: (_root = {
-      boxSizing: 'border-box',
-      display: 'flex',
-      maxHeight: '100%',
-      position: 'fixed',
+      boxSizing: "border-box",
+      display: "flex",
+      maxHeight: "100%",
+      position: "fixed",
       zIndex: theme.zIndex.snackbar,
-      height: 'auto',
-      width: 'auto',
-      transition: 'top 300ms ease 0ms, right 300ms ease 0ms, bottom 300ms ease 0ms, left 300ms ease 0ms, margin 300ms ease 0ms, max-width 300ms ease 0ms',
-      // container itself is invisible and should not block clicks, clicks should be passed to its children 
-      pointerEvents: 'none'
+      height: "auto",
+      width: "auto",
+      transition: "top 300ms ease 0ms, right 300ms ease 0ms, bottom 300ms ease 0ms, left 300ms ease 0ms, margin 300ms ease 0ms, max-width 300ms ease 0ms",
+      // container itself is invisible and should not block clicks, clicks should be passed to its children
+      pointerEvents: "none"
     }, _root[collapse.container] = {
-      pointerEvents: 'all'
+      pointerEvents: "all"
     }, _root[collapse.wrapper] = {
       padding: SNACKBAR_INDENTS.snackbar["default"] + "px 0px",
-      transition: 'padding 300ms ease 0ms'
-    }, _root.maxWidth = "calc(100% - " + SNACKBAR_INDENTS.view["default"] * 2 + "px)", _root[theme.breakpoints.down('xs')] = {
-      width: '100%',
+      transition: "padding 300ms ease 0ms"
+    }, _root.maxWidth = "calc(100% - " + SNACKBAR_INDENTS.view["default"] * 2 + "px)", _root[theme.breakpoints.down("xs")] = {
+      width: "100%",
       maxWidth: "calc(100% - " + xsWidthMargin * 2 + "px)"
     }, _root),
     rootDense: (_rootDense = {}, _rootDense[collapse.wrapper] = {
@@ -651,31 +651,31 @@ var useStyle = /*#__PURE__*/styles$2.makeStyles(function (theme) {
     }, _rootDense),
     top: {
       top: SNACKBAR_INDENTS.view["default"] - SNACKBAR_INDENTS.snackbar["default"],
-      flexDirection: 'column'
+      flexDirection: "column"
     },
     bottom: {
       bottom: SNACKBAR_INDENTS.view["default"] - SNACKBAR_INDENTS.snackbar["default"],
-      flexDirection: 'column-reverse'
+      flexDirection: "column-reverse"
     },
     left: (_left = {
       left: SNACKBAR_INDENTS.view["default"]
-    }, _left[theme.breakpoints.up('sm')] = {
-      alignItems: 'flex-start'
-    }, _left[theme.breakpoints.down('xs')] = {
+    }, _left[theme.breakpoints.up("sm")] = {
+      alignItems: "flex-start"
+    }, _left[theme.breakpoints.down("xs")] = {
       left: xsWidthMargin + "px"
     }, _left),
     right: (_right = {
       right: SNACKBAR_INDENTS.view["default"]
-    }, _right[theme.breakpoints.up('sm')] = {
-      alignItems: 'flex-end'
-    }, _right[theme.breakpoints.down('xs')] = {
+    }, _right[theme.breakpoints.up("sm")] = {
+      alignItems: "flex-end"
+    }, _right[theme.breakpoints.down("xs")] = {
       right: xsWidthMargin + "px"
     }, _right),
     center: (_center = {
-      left: '50%',
-      transform: 'translateX(-50%)'
-    }, _center[theme.breakpoints.up('sm')] = {
-      alignItems: 'center'
+      left: "50%",
+      transform: "translateX(-50%)"
+    }, _center[theme.breakpoints.up("sm")] = {
+      alignItems: "center"
     }, _center)
   };
 }, {
